@@ -47,4 +47,6 @@ export default handleHistory(provideContext(connectToStores(
             pages: appStore.getPages()
         };
     }
-)));
+), { // child context types
+    demonstrate: React.PropTypes.func.isRequired
+}));

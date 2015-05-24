@@ -25,9 +25,8 @@ class Html extends React.Component {
     }
 }
 
-// This yields an error about demonstrate not being provided
-Html.contextTypes = {
-    demonstrate: React.PropTypes.func.isRequired
+Html.propTypes = {
+    context: React.PropTypes.object.isRequired
 };
 
 module.exports = Html;
