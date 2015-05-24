@@ -4,6 +4,9 @@ var ApplicationStore = require('../stores/ApplicationStore');
 
 class Html extends React.Component {
     render() {
+        // Returns the expected componentContext.demonstrate value
+        console.log('Html', 'this.props.context.demonstrate', this.props.context.demonstrate);
+
         return (
             <html>
             <head>
@@ -21,5 +24,10 @@ class Html extends React.Component {
         );
     }
 }
+
+// This yields an error about demonstrate not being provided
+Html.contextTypes = {
+    demonstrate: React.PropTypes.func.isRequired
+};
 
 module.exports = Html;

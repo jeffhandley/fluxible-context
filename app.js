@@ -9,6 +9,31 @@ const app = new Fluxible({
     component: Application
 });
 
+app.plug({
+    name: 'fluxible-context',
+    plugContext: function (options) {
+        return {
+            plugComponentContext(componentContext) {
+                componentContext.demonstrate = function() {
+                    console.log('componentContext.demonstrate');
+                };
+            },
+
+            plugActionContext(actionContext) {
+                actionContext.demonstrate = function() {
+                    console.log('actionContext.demonstrate');
+                };
+            },
+
+            plugStoreContext(storeContext) {
+                storeContext.demonstrate = function() {
+                    console.log('storeContext.demonstrate');
+                };
+            }
+        };
+    }
+});
+
 // register routes
 var MyRouteStore = RouteStore.withStaticRoutes(routes);
 app.registerStore(MyRouteStore);
